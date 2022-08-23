@@ -1,0 +1,50 @@
+MacOS has introduced .zshrc as the new default interactive shell
+However, here is the instructions from pycharm
+
+1.Run the following command to find the user base's binary directory:
+  $ python -m site --user-base
+  An example of output can be
+  /Users/jetbrains/.local (masOS) or /home/jetbrains/.local (Linux)
+  
+2.Add bin to this path to receive a string for adding to the ~/.bashrc file, for example:
+  $ export PATH="$PATH:/Users/jetbrains/.local/bin"
+  
+3.Run the following command to make the changes effective:
+  $ source ~/.bashrc
+  
+4.Ensure you have enabled bashrc in your bash_profile.
+
+I followed the instructions but only got one error return
+"zsh: no such user or named directory: .bashrc"
+So, building a new .bash_profile and .bashrc
+did the instructions again
+Typed in "pipenv" in terminal 
+Yes, it was done!
+Back to pycharm, it still count not auto detect the pipenv
+After restarting the terminal, tried "pipenv", everything back to the beginning, not happened except error
+
+I googled a lot, seems that all solutions referred to add PATH to .bashrc or .bash_profile
+.........
+Until I checked terminal again, I finally realized that .... well, I am using zsh....
+
+So, the final solution is quite easy
+
+1.Typing "cd ~/(yourusername)"
+2.Enter "touch .bash_profile"
+3.      "open .bash_profile"
+4.A new window will pop-up, filename is .bash_profile
+  Write "PATH="$PATH:/Users/(yourusername)/.local/bin"  #Which is the default root pipenv will be installed using "pip install pipenv"
+  Command + S  -> to save .bash_profile
+5.Enter "open .zshrc"
+  Write "source ~/.bash_profile"
+  Command + S -> save .zshrc
+6.Enter "source ~/.zshrc"
+  Terminate the terminal
+7.Restart pycharm and now pipenv can be auto-detected
+
+
+Further info about how to set the system default python version as the vitrual development evrionment
+The default root for pyenv installed python is 
+"/Users/(yourusername)/.pyenv/versions/3.10.5/bin/python"
+
+Now all set, I can start 大蟒蛇咯
