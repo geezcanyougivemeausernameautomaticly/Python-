@@ -48,3 +48,8 @@ The default root for pyenv installed python is
 "/Users/(yourusername)/.pyenv/versions/3.10.5/bin/python"
 
 Now all set, I can start 大蟒蛇咯
+
+
+PS: How to find what shell I am using
+
+click "" -> "system preferences" -> "Users & Groups" -> "🔒" -> two finger click on user "advanced options"
